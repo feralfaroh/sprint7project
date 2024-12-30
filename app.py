@@ -13,4 +13,7 @@ df['date_posted'] = pd.to_datetime(df['date_posted'])
 
 # Titles
 st.title('Vehicle dataset')
-st.write('This is a simple example of a Streamlit app')
+st.write('Estudiante FERNANDO JESUS ALFARO HERNANDEZ')
+
+# Show the data
+df
