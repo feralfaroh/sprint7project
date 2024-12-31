@@ -1,4 +1,4 @@
- pandas
- plotly_express
- streamlit
+pandas
+plotly_express
+streamlit
 nbformat>=4.2.0
