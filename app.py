@@ -32,8 +32,16 @@ if hist_button:  # Al hacer clic en el botón
     st.write('Gráfico de barras')
 
     # Gráfico de barras
-    gb = df.groupby(['model_year', 'fuel'])['odometer'].sum().reset_index()
-    fig = px.bar(gb, x="model_year", y="odometer", color="fuel", barmode="stack")
+    gb = df.groupby(['model_year', 'fuel'])['odometer'].mean().reset_index()
+    fig = px.bar(gb, x="model_year", y="odometer", color="fuel", barmode="stack", title="Promedio de Millas por año y tipo de combustible")
     
     # Mostrar el gráfico de barras en la interfaz de Streamlit
     st.plotly_chart(fig, use_container_width=True)
+
+    #Gráfico de densidad
+    den = px.density_heatmap(df, x="days_listed", y="price", title='Tiempo de venta por precio')
+    st.plotly_chart(den, use_container_width=True)
+
+    #Grafico scatter
+    sct = px.scatter(df, x="odometer", y="price", facet_col="transmission", color="condition", title='Precio vs Millas')
+    st.plotly_chart(sct, use_container_width=True)
